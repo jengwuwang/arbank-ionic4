@@ -1,0 +1,8 @@
+{
+    "name": "Ionic AWS/Cognito App",
+    "integrations": {
+        "cordova": {}
+    },
+    "type": "ionic-angular",
+    "id": "27de28ec"
+}

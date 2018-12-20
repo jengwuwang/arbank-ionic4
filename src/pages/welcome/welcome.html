@@ -1,0 +1,38 @@
+<ion-header>
+ <!--  <ion-navbar>
+    <ion-title>Welcome</ion-title>
+  </ion-navbar> -->
+</ion-header>
+<ion-content class="welcome-bkg">
+  <div text-center class="slogan">
+    <img src="./assets/imgs/logo.png" />
+  </div>
+  <ion-content padding>
+    <form [formGroup]="loginForm">
+      <ion-item>
+        <ion-label floating>CPF ou CNPJ</ion-label>
+        <ion-input [brmasker]="{person: true}" value="" formControlName="username" type="text" autocapitalize="none"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!loginForm.controls['username'].valid && loginForm.controls['username'].errors && loginForm.controls['username'].touched">
+        <p class="error" *ngIf="signupForm.controls['username'].errors.required">{{ validation_messages.username[0].message }}</p>
+        <p class="error" *ngIf="signupForm.controls['username'].errors.pattern">{{ validation_messages.username[1].message }}</p>
+        <p class="error" *ngIf="signupForm.controls['username'].errors.minlength">{{ validation_messages.username[2].message }}</p>
+        <p class="error" *ngIf="signupForm.controls['username'].errors.maxlength">{{ validation_messages.username[3].message }}</p>
+      </ion-item>
+      <show-hide-container>
+        <ion-item>
+            <ion-label floating>Senha</ion-label>
+            <ion-input type="password" formControlName="password" show-hide-input></ion-input>
+        </ion-item>
+      </show-hide-container>
+      <ion-item *ngIf="!loginForm.controls['password'].valid && loginForm.controls['password'].errors && loginForm.controls['password'].touched">
+        <p class="error" *ngIf="loginForm.controls['password'].errors.required">{{ validation_messages.password[0].message }}</p>
+      </ion-item>
+      <div padding>
+        <button ion-button block color="secundary" class="login" (click)="login()" [disabled]="!loginForm.valid">Entrar</button>
+        <button ion-button block color="primary" class="signup" (click)="signup()">Abrir Conta</button>
+        <button ion-button block color="primary" (click)="goToForgot()">Esqueci a Senha</button>
+      </div>
+    </form>
+  </ion-content>
+</ion-content>

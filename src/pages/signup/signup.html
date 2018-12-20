@@ -1,0 +1,92 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Abrir Conta</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="content-md-blue" padding>
+  <form [formGroup]="signupForm">
+    <ion-item>
+      <ion-label floating>Nome Completo</ion-label>
+      <ion-input formControlName="given_name" type="text"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!signupForm.controls['given_name'].valid && signupForm.controls['given_name'].errors && signupForm.controls['given_name'].touched">
+      <p class="error" *ngIf="signupForm.controls['given_name'].errors.required">{{ validation_messages.given_name[0].message }}</p>
+      <p class="error" *ngIf="signupForm.controls['given_name'].errors.pattern">{{ validation_messages.given_name[1].message }}</p>
+      <p class="error" *ngIf="signupForm.controls['given_name'].errors.minlength">{{ validation_messages.given_name[2].message }}</p>
+      <p class="error" *ngIf="signupForm.controls['given_name'].errors.maxlength">{{ validation_messages.given_name[3].message }}</p>
+    </ion-item>
+  <!--  <ion-item>
+      <ion-label floating>Sobrenome</ion-label>
+      <ion-input formControlName="family_name" type="text"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!signupForm.controls['family_name'].valid && signupForm.controls['family_name'].errors && signupForm.controls['family_name'].touched">
+      <p class="error" *ngIf="signupForm.controls['family_name'].errors.required">{{ validation_messages.family_name[0].message }}</p>
+      <p class="error" *ngIf="signupForm.controls['family_name'].errors.pattern">{{ validation_messages.family_name[1].message }}</p>
+      <p class="error" *ngIf="signupForm.controls['family_name'].errors.minlength">{{ validation_messages.family_name[2].message }}</p>
+      <p class="error" *ngIf="signupForm.controls['family_name'].errors.maxlength">{{ validation_messages.family_name[3].message }}</p>
+    </ion-item>-->
+    <ion-item>
+      <ion-label floating>CPF ou CNPJ</ion-label>
+      <ion-input name="CPF ou CNPJ" [brmasker]="{person: true}" value="" formControlName="username" type="text" autocapitalize="none"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!signupForm.controls['username'].valid && signupForm.controls['username'].errors && signupForm.controls['username'].touched">
+      <p class="error" *ngIf="signupForm.controls['username'].errors.required">{{ validation_messages.username[0].message }}</p>
+      <p class="error" *ngIf="signupForm.controls['username'].errors.pattern">{{ validation_messages.username[1].message }}</p>
+      <p class="error" *ngIf="signupForm.controls['username'].errors.minlength">{{ validation_messages.username[2].message }}</p>
+      <p class="error" *ngIf="signupForm.controls['username'].errors.maxlength">{{ validation_messages.username[3].message }}</p>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>E-mail</ion-label>
+      <ion-input formControlName="email" type="email"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!signupForm.controls['email'].valid && signupForm.controls['email'].errors && signupForm.controls['email'].touched">
+      <p class="error" *ngIf="signupForm.controls['email'].errors.required">{{ validation_messages.email[0].message }}</p>
+      <p class="error" *ngIf="signupForm.controls['email'].errors.email">{{ validation_messages.email[1].message }}</p>
+    </ion-item>
+    <phone-number formControlName="phone_number" [countries]="countries" [countryCode]="signupForm.controls['country_and_code__c']"></phone-number>
+    <ion-item *ngIf="!signupForm.controls['phone_number'].valid && signupForm.controls['phone_number'].errors && signupForm.controls['phone_number'].touched">
+      <p class="error" *ngIf="signupForm.controls['phone_number'].errors.required">{{ validation_messages.phone_number[0].message }}</p>
+      <p class="error" *ngIf="signupForm.controls['phone_number'].errors.validCountryPhone">{{ validation_messages.phone_number[1].message }}</p>
+    </ion-item>
+    <ion-item>
+      <ion-label floating><span class="w-font">Nascimento</span></ion-label>
+      <ion-datetime formControlName="birthdate" displayFormat="DD/MM/YYYY"></ion-datetime>
+    </ion-item>
+    <ion-item *ngIf="!signupForm.controls['birthdate'].valid && signupForm.controls['birthdate'].errors && signupForm.controls['birthdate'].touched">
+      <p class="error" *ngIf="signupForm.controls['birthdate'].errors.required">{{ validation_messages.birthdate[0].message }}</p>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Senha</ion-label>
+      <ion-input formControlName="password" type="password" validateEqual="confirmPassword" reverse="true"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!signupForm.controls['password'].valid && signupForm.controls['password'].errors && signupForm.controls['password'].touched">
+      <p class="error" *ngIf="signupForm.controls['password'].errors.required">{{ validation_messages.password[0].message }}</p>
+      <p class="error" *ngIf="signupForm.controls['password'].errors.minlength">{{ validation_messages.password[1].message }}</p>
+      <p class="error" *ngIf="signupForm.controls['password'].errors.pattern">{{ validation_messages.password[2].message }}</p>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Confirmar</ion-label>
+      <ion-input formControlName="confirmPassword" type="password" validateEqual="password" reverse="false"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!signupForm.controls['confirmPassword'].valid && signupForm.controls['confirmPassword'].errors && signupForm.controls['confirmPassword'].touched">
+      <p class="error" *ngIf="signupForm.controls['confirmPassword'].errors.required">{{ validation_messages.confirmPassword[0].message }}</p>
+      <p class="error" *ngIf="signupForm.controls['confirmPassword'].errors.validateEqual">{{ validation_messages.confirmPassword[1].message }}</p>
+    </ion-item>
+    <div padding>
+      <button ion-button block color="primary" class="signup" (click)="signUp()" [disabled]="!signupForm.valid">Abrir Conta</button>
+    </div>
+    <div padding text-center class="white-font">
+      Já tem uma conta?
+      <a (click)='goToLogin()'>
+        <strong>
+          Entrar
+        </strong>
+      </a>
+    </div>
+  </form>
+</ion-content>

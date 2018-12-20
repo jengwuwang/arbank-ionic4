@@ -1,0 +1,46 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.utherwise.cognito"
+    },
+    "cordova-plugin-ionic-webview": {
+      "PACKAGE_NAME": "com.utherwise.cognito"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.utherwise.cognito"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.utherwise.cognito"
+    },
+    "ionic-plugin-keyboard": {
+      "PACKAGE_NAME": "com.utherwise.cognito"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.utherwise.cognito"
+    },
+    "cordova-plugin-advanced-http": {
+      "PACKAGE_NAME": "com.utherwise.cognito"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.utherwise.cognito"
+    },
+    "cordova-plugin-document-viewer": {
+      "PACKAGE_NAME": "com.utherwise.cognito"
+    },
+    "phonegap-plugin-barcodescanner": {
+      "PACKAGE_NAME": "com.utherwise.cognito"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.utherwise.cognito"
+    }
+  }
+}

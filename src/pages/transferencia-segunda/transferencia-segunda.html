@@ -1,0 +1,42 @@
+<ion-content padding style="background-image: url('../assets/imgs/fundo-interno.jpg');background-repeat: no-repeat;background-size:100%;">
+    <form [formGroup]="stepSecondForm">
+        <div class="row">
+            <div class="col s6">
+                <a (click)="onTrans()">
+                    <div class="col s2">
+                        <ion-icon name="ios-arrow-dropleft" class="white-text icon-back"></ion-icon>
+                    </div>
+                </a>
+                <div class="col s10">
+                    <p style="background-color: #fff;border-radius: 35px;padding: 10px 20px;margin-top: -6px;color: #3b6687;">Transferência</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <img src="../assets/imgs/passo2.png" style="width: 100%;height: 40px;">
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <div class="card" style="background: #fff !important;border-bottom: none;text-align: left;">
+                    <div class="card-action" style="border-top: none;">
+                        <a href="#" style="color: #2e4c63 !important;">Saldo disponível</a>
+                        <a href="#" style="color: #2e4c63 !important;float: right;"><b>R$ {{limitedValue}}</b></a>
+                        <br><br>
+                        <p style="color: #3b6687;">Valor a ser transferido</p>
+                        <div class="input-field">
+                            <ion-item class="inputSenha" style="border-bottom: none !important;">
+                                <ion-label style="color:#000;font-size: 15px;">R$</ion-label>
+                                <ion-input [brmasker]="{money: true, thousand: ',',  decimalCaracter: ',', decimal: 2}" clearInput formControlName="brlValue" id="brlValue" type="text" [(ngModel)]="brlValue" [max]="limitedValue"></ion-input>
+                            </ion-item>
+                            <ion-item *ngIf="!stepSecondForm.controls['brlValue'].valid && stepSecondForm.controls['brlValue'].errors && stepSecondForm.controls['brlValue'].touched">
+                                <p class="error" *ngIf="stepSecondForm.controls['brlValue'].errors.required">{{ validation_messages.brlValue[0].message }}</p>
+                                <p class="error" [hidden]="!viewFlag">O valor máximo é {{limitedValue}}.</p>
+                            </ion-item>
+                        </div>
+                        <button ion-button class="waves-effect waves-light btn button-login" (click)="onTransPart3()" style="background-color:#024b7d !important" [disabled]="!stepSecondForm.valid">Próximo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</ion-content>

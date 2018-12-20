@@ -1,0 +1,247 @@
+.texto-senha{
+  color: #ccc;
+  font-size: 12px;
+}
+
+.button-login{
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  /*background-image: linear-gradient(to right, #b1daf0 0%, #5b90e8 51%, #2d73e6 100%);*/
+  background-color: #024B7D ;
+  border-radius: 35px ;
+  padding-top: 5px ;
+  padding-bottom: 5px ;
+  height: 45px ;
+  -webkit-box-shadow: none ;
+  box-shadow: none ;
+  text-transform: none ;
+}
+
+.button-interno{
+  width: 100%;
+  background-color: #5b90e8 !important;
+  border-radius: 0px !important;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+  height: 45px !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  text-transform: none !important;
+}
+
+.button-cadastro{
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  background: #fff ;
+  color: #007ec1 ;
+  border: 1px solid #007ec1 ;
+  border-radius: 35px ;
+  padding-top: 5px ;
+  padding-bottom: 5px ;
+  height: 45px ;
+  -webkit-box-shadow: none ;
+  box-shadow: none ;
+  text-transform: none ;
+}
+
+.button-limpar{
+  background: #fff ;
+  color: #007ec1 ;
+  border: 1px solid #007ec1 ;
+  padding-top: 5px ;
+  padding-bottom: 5px ;
+  height: 45px ;
+  -webkit-box-shadow: none ;
+  box-shadow: none ;
+  text-transform: none ;
+  float: right;
+}
+
+.imagem-login{
+  margin-left: -20px;
+}
+
+.texto-cadastro{
+  color: #fff;
+  font-size: 12px;
+}
+
+.padding-login{
+  margin-top: 15px;
+}
+
+.fundo-login{
+  background-image: url(../../assets/imgs/index.svg) ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.input-field2{
+  color: #fff ;
+}
+
+input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea{
+  border-bottom: 1px solid #fff;
+}
+
+.toolbar-background-md{
+    -webkit-box-shadow: none ;
+    box-shadow: none ;
+    background: #fff ;
+}
+
+.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default{
+    color: #5b90e8 ;
+}
+
+.toolbar-title-md{
+    font-weight: 100 ;
+}
+
+.input-field{
+    margin-top: 2rem ;
+}
+
+.logo-interno{
+  width: 54px;
+  margin-left: 30px;
+}
+
+.card .card-action:last-child {
+  border-radius: 0 0 25px 25px ;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+  font-size: 15px;
+  color: #fff;
+  text-transform: none ;
+  margin-right: 0px ;
+}
+
+/* Container for skill bars */
+.container {
+  width: 100%; /* Full width */
+  background-color: #729ae1; /* Grey background */
+}
+
+.skills {
+  text-align: right; /* Right-align text */
+  padding: 5px 5px 5px 5px; /* Add some padding */
+  color: white; /* White text color */
+}
+
+.html {width: 65%; background-color: #fff;} /* Green */
+
+.select-md {
+  padding: 25px 5px 1px 8px;
+  max-width: 100%;
+}
+
+.item-md.item-block .item-inner{
+  border: none;
+}
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 130px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.flexBox{
+  display: flex;
+  flex-grow: 1;
+}
+
+ion-slides {
+  height: auto ;
+}
+
+.body-internal{
+  background-image: url('../imgs/fundo-interno.svg');
+  background-repeat: no-repeat;
+  background-size:100%;
+}
+
+.title-internal-credit{
+  background-color: #fff;
+  border-radius: 35px;padding: 10px 20px;margin-top: -6px;color: #3b6687;
+}
+
+.back-credit{
+  background: #025182;
+  padding: 15px;
+}
+
+.logo-elo2{
+  width: 66px;
+}
+
+.title-number-credit{
+  font-size: 26px;
+  margin-left: 15px;
+}
+
+.dados-credit{
+  background: #29D4E3;
+  height: 5px;
+}
+
+.list-credit{
+  width:100%;
+  height:100vh
+}
+
+.sublist-credit{
+  margin: -20px;
+}
+
+.item-block{
+  border-bottom: 1px solid;
+}
+
+.icon-back{
+  font-size: 42px;
+}

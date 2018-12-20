@@ -1,0 +1,31 @@
+page-welcome {
+    .welcome-bkg {
+        background: url('../assets/img/bkg.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-color:#112f61;
+
+        img {
+            margin-top: 100px !important;
+            width: 263px;
+        }
+    }
+
+    .slogan {
+
+        h1 {
+            margin-top: 80px !important;
+            text-transform: uppercase;
+        }
+    }
+
+    .splash-btn {
+        bottom: 30px;
+        text-align: center;
+        position: fixed;
+        width: 100%;
+        transform: perspective(1px) translate(-1.5%);
+    }
+
+}

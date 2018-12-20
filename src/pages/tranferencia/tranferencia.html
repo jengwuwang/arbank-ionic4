@@ -1,0 +1,49 @@
+<ion-content padding style="background-image: url('../assets/imgs/fundo-interno.jpg');background-repeat: no-repeat;background-size:100%;">
+    <form [formGroup]="stepOneForm">
+        <div class="row">
+            <div class="col s6">
+                <a (click)="onDados()">
+                    <div class="col s2">
+                        <ion-icon name="ios-arrow-dropleft" class="white-text icon-back"></ion-icon>
+                    </div>
+                </a>
+                <div class="col s10">
+                    <p style="background-color: #fff;border-radius: 35px;padding: 10px 20px;margin-top: -6px;color: #3b6687;">Transferência</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <img src="../assets/imgs/passo1.png" style="width: 100%;height: 40px;">
+        </div>
+        <ion-slides class="slides-home">
+            <ion-slide>
+                <div class="row">
+                    <div class="col s12">
+                        <div class="card" style="background: #fff !important;border-bottom: none;text-align: left;">
+                            <div class="card-content white-text">
+                                <br>
+                                <a style="color: #2e4c63;">
+                                    <p style="font-size: 26px;"><b>Entre Cartões</b></p>
+                                </a>
+                            </div>
+                            <div class="card-action" style="border-top: none;">
+                                <a href="#" style="color: #2e4c63 !important;">Saldo disponível</a>
+                                <a href="#" style="color: #2e4c63 !important;float: right;"><b>R$ {{limitedValue}}</b></a>
+                                <br><br>
+                                <p style="color: #3b6687;">Informações bancárias</p>
+                                <ion-item>
+                                    <ion-input formControlName="account_id" [(ngModel)]="account_id" type="number" style="color:#000 !important;--placeholder-color: #000;--placeholder-opacity: 1;"></ion-input>
+                                    <ion-label floating>Conta</ion-label>
+                                </ion-item>
+                                <ion-item *ngIf="!stepOneForm.controls['account_id'].valid && stepOneForm.controls['account_id'].errors && stepOneForm.controls['account_id'].touched">
+                                    <p class="error" *ngIf="stepOneForm.controls['account_id'].errors.required">{{ validation_messages.account_id[0].message }}</p>
+                                </ion-item>
+                                <button ion-button class="waves-effect waves-light btn button-login" (click)="onTransPart2()" style="background-color:#024b7d !important" [disabled]="!stepOneForm.valid">Próximo</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ion-slide>
+        </ion-slides>
+    </form>
+</ion-content>

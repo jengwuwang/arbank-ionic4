@@ -1,0 +1,31 @@
+<ion-content padding style="background-image: url('../assets/imgs/fundo-interno.jpg');background-repeat: no-repeat;background-size:100%;">
+    <form [formGroup]="confirmPasswordForm">
+        <div class="row">
+            <div class="col s6">
+                <a (click)="onPagarConta()">
+                    <div class="col s2">
+                        <ion-icon name="ios-arrow-dropleft" class="white-text icon-back"></ion-icon>
+                    </div>
+                </a>
+                <div class="col s10">
+                    <p style="background-color: #fff;border-radius: 35px;padding: 10px 20px;margin-top: -6px;color: #3b6687;">Senha do Cartão</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <p class="white-text">Digite a senha do seu cartão:</p>
+            </div>
+        </div>
+        <div align="center">
+            <div style="width: 55%;">
+                <ion-item class="inputSenha" style="border: 5px solid #fff; background-color: transparent;">
+                    <ion-input show-hide-input formControlName="password" [(ngModel)]="password" type="number" type="password" class="white-text"></ion-input>
+                </ion-item>
+            </div>
+        </div>
+        <div class="col-12 s12">
+            <button ion-button class="waves-effect waves-light btn button-login" (click)="onComprovanteConta()" style="background-color:#024b7d !important" [disabled]="!confirmPasswordForm.valid">Confirmar</button>
+        </div>
+    </form>
+</ion-content>

@@ -1,0 +1,48 @@
+<ion-content padding style="background-image: url('../assets/imgs/fundo-interno.jpg');background-repeat: no-repeat;background-size:100%;">
+    <div class="row">
+        <div class="col s6">
+            <a (click)="onTransSeg()">
+                <div class="col s2">
+                    <ion-icon name="ios-arrow-dropleft" class="white-text icon-back"></ion-icon>
+                </div>
+            </a>
+            <div class="col s10">
+                <p style="background-color: #fff;border-radius: 35px;padding: 10px 20px;margin-top: -6px;color: #3b6687;">Transferência</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <img src="../assets/imgs/passo3.png" style="width: 100%;height: 40px;">
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <div class="card" style="background: #fff !important;border-bottom: none;text-align: left;">
+                <div class="card-action" style="border-top: none;">
+                    <a href="#" style="color: #2e4c63 !important;"><b>Saldo disponível</b></a>
+                    <a href="#" style="color: #2e4c63 !important;float: right;"><b>R$ {{limitedValue}}</b></a>
+                    <br><br>
+                    <ion-item style="padding-left: 0px;margin-left: -10px !important;">
+                        <div class="col s6">
+                            <small style="color: #2e4c63"><b>Dados da conta creditada</b></small><br>
+                            <small style="color: #2e4c63 !important;">Nome do cliente: {{nomeValue}}</small><br>
+                            <small style="color: #2e4c63 !important;">Conta do cliente: {{account_id}}</small><br>
+                        </div>
+                    </ion-item>
+                    <ion-item style="padding-left: 0px;margin-left: -10px !important;">
+                        <div class="col s6">
+                            <small style="color: #2e4c63"><b>Data de transferência</b></small><br>
+                            <small style="color: #2e4c63 !important;">{{today}}</small><br>
+                        </div>
+                    </ion-item>
+                    <ion-item style="padding-left: 0px;margin-left: -10px !important;">
+                        <div class="col s6">
+                            <small style="color: #2e4c63"><b>Valor da transferência</b></small><br>
+                            <small style="color: #2e4c63 !important;">R$ {{brlValue}}</small><br>
+                        </div>
+                    </ion-item>
+                    <button ion-button class="waves-effect waves-light btn button-login" (click)="onSenhaTrans()" style="background-color:#024b7d !important">Transferir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>

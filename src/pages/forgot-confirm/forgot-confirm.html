@@ -1,0 +1,48 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Confirmar Recuperação</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="content-md-blue" padding>
+  <div text-center>
+    Por favor, digite o CPF ou CNPJ, senha e o código de verificação que você recebeu por e-mail.
+  </div>
+  <form [formGroup]="forgotConfirmForm">
+    <ion-item>
+      <ion-label floating>CPF ou CNPJ</ion-label>
+      <ion-input formControlName="username" type="text" autocapitalize="none"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!forgotConfirmForm.controls['username'].valid && (forgotConfirmForm.controls['username'].dirty || submitAttempt)">
+      <p class="error">Por favor insira um CPF ou CNPJ válido.</p>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>código de verificação</ion-label>
+      <ion-input formControlName="verificationCode" type="text" autocapitalize="none"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!forgotConfirmForm.controls['verificationCode'].valid && (forgotConfirmForm.controls['verificationCode'].dirty || submitAttempt)">
+      <p class="error">Insira um código de verificação válido.</p>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Senha</ion-label>
+      <ion-input type="password" formControlName="password" validateEqual="confirmPassword" reverse="true"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!forgotConfirmForm.controls['password'].valid && (forgotConfirmForm.controls['password'].dirty || submitAttempt)">
+      <p class="error">Por favor coloque uma senha válida.</p>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Confirmar Senha</ion-label>
+      <ion-input type="password" formControlName="confirmPassword" validateEqual="password" reverse="false"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="forgotConfirmForm.controls['confirmPassword'].errors && (forgotConfirmForm.controls['confirmPassword'].dirty || submitAttempt)">
+      <p *ngIf="forgotConfirmForm.controls['confirmPassword'].errors.required" class="error">Por favor, digite novamente a senha.</p>
+      <p *ngIf="!forgotConfirmForm.controls['confirmPassword'].errors.validateEqual" class="error">Senha não corresponde</p>
+    </ion-item>
+    <div padding>
+      <button ion-button block color="primary" (click)="submit()" [disabled]="!forgotConfirmForm.valid">Atualizar Senha</button>
+    </div>
+  </form>
+</ion-content>

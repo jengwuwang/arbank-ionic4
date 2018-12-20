@@ -1,0 +1,95 @@
+
+<ion-header>
+
+  <ion-toolbar>
+    <ion-title>Editar Perfil</ion-title>
+    <ion-buttons start>
+        <button ion-button (click)="cancel()">
+        <span ion-text color="primary" showWhen="ios">Cancelar</span>
+        <ion-icon name="md-close" showWhen="android, windows, core"></ion-icon>
+        </button>
+      </ion-buttons>
+      <ion-buttons end>
+        <button ion-button (click)="save()">
+          <span ion-text color="primary">Salvar</span>
+        </button>
+      </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="profileForm">
+    <ion-row>
+      <ion-col col-6>
+        <ion-item>
+          <ion-label floating>Nome Completo</ion-label>
+          <ion-input formControlName="given_name" type="text"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!profileForm.controls['given_name'].valid && profileForm.controls['given_name'].errors && profileForm.controls['given_name'].touched">
+          <p class="error" *ngIf="profileForm.controls['given_name'].errors.required">{{ validation_messages.given_name[0].message }}</p>
+          <p class="error" *ngIf="profileForm.controls['given_name'].errors.pattern">{{ validation_messages.given_name[1].message }}</p>
+          <p class="error" *ngIf="profileForm.controls['given_name'].errors.minlength">{{ validation_messages.given_name[2].message }}</p>
+          <p class="error" *ngIf="profileForm.controls['given_name'].errors.maxlength">{{ validation_messages.given_name[3].message }}</p>
+        </ion-item>
+      </ion-col>
+    <!--  <ion-col col-6>
+        <ion-item>
+          <ion-label floating>Sobrenome</ion-label>
+          <ion-input formControlName="family_name" type="text"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!profileForm.controls['family_name'].valid && profileForm.controls['family_name'].errors && profileForm.controls['family_name'].touched">
+          <p class="error" *ngIf="profileForm.controls['family_name'].errors.required">{{ validation_messages.family_name[0].message }}</p>
+          <p class="error" *ngIf="profileForm.controls['family_name'].errors.pattern">{{ validation_messages.family_name[1].message }}</p>
+          <p class="error" *ngIf="profileForm.controls['family_name'].errors.minlength">{{ validation_messages.family_name[2].message }}</p>
+          <p class="error" *ngIf="profileForm.controls['family_name'].errors.maxlength">{{ validation_messages.family_name[3].message }}</p>
+        </ion-item>
+      </ion-col>-->
+    </ion-row>
+    <ion-item>
+      <ion-label floating>CPF ou CNPJ</ion-label>
+      <ion-input formControlName="username" type="text" autocapitalize="none"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!profileForm.controls['username'].valid && profileForm.controls['username'].errors && profileForm.controls['username'].touched">
+      <p class="error" *ngIf="profileForm.controls['username'].errors.required">{{ validation_messages.username[0].message }}</p>
+      <p class="error" *ngIf="profileForm.controls['username'].errors.minlength">{{ validation_messages.username[1].message }}</p>
+      <p class="error" *ngIf="profileForm.controls['username'].errors.maxlength">{{ validation_messages.username[2].message }}</p>
+      <!-- <p class="error" *ngIf="profileForm.controls['username'].errors.pattern">{{ validation_messages.username[3].message }}</p> -->
+    </ion-item>
+    <ion-item>
+      <ion-label floating>E-mail</ion-label>
+      <ion-input formControlName="email" type="email"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!profileForm.controls['email'].valid && profileForm.controls['email'].errors && profileForm.controls['email'].touched">
+      <p class="error" *ngIf="profileForm.controls['email'].errors.required">{{ validation_messages.email[0].message }}</p>
+      <p class="error" *ngIf="profileForm.controls['email'].errors.email">{{ validation_messages.email[1].message }}</p>
+    </ion-item>
+    <ion-item>
+      <ion-label floating><span class="w-font">Celular</span></ion-label>
+      <ion-select formControlName="country_and_code__c" (ionChange)="onSelect($event)">
+        <ion-option *ngFor="let c of countries" [value]="c.code">
+          {{ c.name }}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item *ngIf="!profileForm.controls['country_and_code__c'].valid && signupForm.controls['country_and_code__c'].errors && profileForm.controls['country_and_code__c'].touched">
+      <p class="error" *ngIf="profileForm.controls['country_and_code__c'].errors.required">{{ validation_messages.country_and_code__c[0].message }}</p>
+    </ion-item>
+    <ion-item>
+      <span item-content padding-right>{{ dial_code }}</span>
+      <ion-input min="10" max="11" type="tel" formControlName="phone_number" [placeholder]="example_number_formatted" [brmasker]="brConfig"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!profileForm.controls['phone_number'].valid && profileForm.controls['phone_number'].errors && profileForm.controls['phone_number'].touched">
+      <p class="error" *ngIf="profileForm.controls['phone_number'].errors.required">{{ validation_messages.phone_number[0].message }}</p>
+      <p class="error" *ngIf="profileForm.controls['phone_number'].errors.validCountryPhone">{{ validation_messages.phone_number[1].message }}</p>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Nascimento</ion-label>
+      <ion-datetime formControlName="birthdate" displayFormat="DD/MM/YYYY"></ion-datetime>
+    </ion-item>
+    <ion-item *ngIf="!profileForm.controls['birthdate'].valid && profileForm.controls['birthdate'].errors && profileForm.controls['birthdate'].touched">
+      <p class="error" *ngIf="profileForm.controls['birthdate'].errors.required">{{ validation_messages.birthdate[0].message }}</p>
+    </ion-item>
+  </form>
+</ion-content>

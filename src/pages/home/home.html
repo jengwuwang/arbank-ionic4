@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      ArBank
+    </ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-start (click)="signOut()">
+        <ion-icon name="log-out"></ion-icon>
+        Sair
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-fab bottom right>
+    <button ion-fab mini (click)="edit()">
+      <ion-icon name="create"></ion-icon>
+    </button>
+  </ion-fab>
+  <ion-list>
+    <ion-item>
+      <p>{{ user.cognitoProfile.given_name }}</p>
+    </ion-item>
+    <ion-item>
+      <p>{{ user.cognitoProfile.preferred_username }}</p>
+    </ion-item>
+    <ion-item>
+      <p>{{ user.cognitoProfile.email }}</p>
+    </ion-item>
+    <ion-item>
+      <p>{{ user.cognitoProfile.birthdate | date }}</p>
+    </ion-item>
+    <ion-item *ngIf="user.cognitoProfile.phone_number">
+      <p>{{ user.cognitoProfile.phone_number | phoneMask: user.cognitoProfile.country_and_code }}</p>
+    </ion-item>
+    <ion-item>
+      <button ion-item no-padding (click)="changePassword()">
+        <p>Esqueci a senha</p>
+      </button>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

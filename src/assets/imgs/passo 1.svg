@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X7 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="3.22678in" height="0.38889in" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 3227 389"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <font id="FontID0" horiz-adv-x="644" font-variant="normal" style="fill-rule:nonzero" font-weight="400">
+	<font-face 
+		font-family="Gisha">
+	</font-face>
+   <missing-glyph><path d="M0 0z"/></missing-glyph>
+   <glyph unicode="3" horiz-adv-x="538"><path d="M63.9977 25.8389l0 86.5005c47.8402,-37.8317 101.829,-56.6712 162.011,-56.6712 48.8214,0 87.8306,12.1672 116.984,36.6542 29.1751,24.3344 43.6755,57.1728 43.6755,98.6677 0,91.3412 -64.8263,137.175 -194.828,137.175l-58.0014 0 0 67.8354 55.1667 0c115.501,0 173.328,42.9995 173.328,128.824 0,79.5011 -44.177,119.164 -132.335,119.164 -49.1703,0 -95.506,-16.659 -139.16,-50.1515l0 77.9966c44.8311,26.6675 97.9918,40.1648 159.155,40.1648 59.0044,0 106.016,-15.656 141.34,-46.9898 35.3241,-31.1812 53.008,-71.1716 53.008,-120.015 0,-92.1698 -46.8372,-151.501 -140.686,-177.82l0 -2.00606c50.5004,-4.84071 90.6871,-22.5028 120.342,-52.8336 29.8293,-30.5052 44.8311,-68.5114 44.8311,-113.997 0,-62.8421 -22.6554,-113.67 -67.661,-152.177 -45.1582,-38.6603 -104.664,-57.8269 -178.496,-57.8269 -66.3309,0 -119.339,12.4943 -158.675,37.5046z"/></glyph>
+   <glyph unicode="2" horiz-adv-x="538"><path d="M468.83 0l-421.993 0 0 71.3242 204.16 204.509c52.005,52.1576 89.3352,95.506 111.511,130.176 22.3283,34.6482 33.4925,71.6513 33.4925,111.162 0,40.3393 -11.4912,71.4987 -34.67,93.6526 -23.1569,22.1757 -55.9953,33.1654 -98.6677,33.1654 -62.4932,0 -122.326,-26.6457 -179.673,-79.9808l0 83.9929c54.687,42.6724 118.336,63.9977 191.012,63.9977 62.4932,0 111.489,-17.0079 147.337,-50.8275 35.8256,-33.8414 53.8366,-79.3485 53.8366,-136.347 0,-44.8311 -12.5161,-88.6592 -37.1776,-131.484 -24.8359,-42.8469 -69.1655,-96.0075 -133.338,-159.504l-161.662 -159.678 0 -1.83162 325.832 0 0 -72.3272z"/></glyph>
+   <glyph unicode="1" horiz-adv-x="538"><path d="M482 0l-396.001 0 0 70.343 158.174 0 0 543.992 -162.164 -48.3417 0 76.1649 242.167 73.6792 0 -645.494 157.825 0 0 -70.343z"/></glyph>
+  </font>
+  <style type="text/css">
+   <![CDATA[
+    @font-face { font-family:"Gisha";src:url("#FontID0") format(svg)}
+    .str0 {stroke:#4372A1;stroke-width:40}
+    .str1 {stroke:#00B394;stroke-width:40}
+    .fil2 {fill:none}
+    .fil1 {fill:#4372A1}
+    .fil3 {fill:white}
+    .fil0 {fill:#00B394}
+    .fnt0 {font-weight:normal;font-size:180.555px;font-family:'Gisha'}
+   ]]>
+  </style>
+ </defs>
+ <g id="Camada_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_2364986244208">
+   <circle class="fil0" cx="194" cy="194" r="194"/>
+   <circle class="fil1" cx="1613" cy="194" r="194"/>
+   <circle class="fil1" cx="3032" cy="194" r="194"/>
+   <line class="fil2 str0" x1="748" y1="194" x2="3032" y2= "194" />
+   <text x="144" y="259"  class="fil3 fnt0">1</text>
+   <text x="1562" y="259"  class="fil3 fnt0">2</text>
+   <text x="2985" y="259"  class="fil3 fnt0">3</text>
+   <line class="fil2 str1" x1="352" y1="194" x2="748" y2= "194" />
+  </g>
+ </g>
+</svg>

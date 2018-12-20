@@ -1,0 +1,82 @@
+<ion-content padding class="body-internal">
+    <div class="row">
+        <div class="col s6">
+            <a (click)="onDados()">
+                <div class="col s2">
+                    <ion-icon name="ios-arrow-dropleft" class="white-text icon-back"></ion-icon>
+                </div>
+            </a>
+            <div class="col s10">
+                <p class="title-internal-credit">Cartão de Crédito</p>
+            </div>
+        </div>
+    </div>
+    <div class="back-credit">
+        <div class="row">
+            <div class="col s12">
+                <img src="../assets/imgs/logo-elo2.svg" class="logo-elo2">
+                <span class="white-text title-number-credit">Final {{finalValue}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s6">
+                <small class="white-text"><b>Saldo Disponível</b></small>
+            </div>
+            <div class="col s6" align="right">
+                <small class="white-text">R$ {{limitedValue}}</small>
+            </div>
+        </div>
+    </div>
+    <div class="row dados-credit"></div>
+    <ion-scroll class="list-credit" scrollY="true">
+        <ion-list class="sublist-credit">
+            <ion-item *ngFor="let list of listDatas">
+                <div class="row">
+                <div class="col s6">
+                    <small>
+                      <span class="white-text">{{list.dataOrigem | date: 'dd/MM/yyyy' }} <br> 
+                      {{list.nomeEstabelecimento == '' ? 'ReadyState' :  list.nomeEstabelecimento}}</span>
+                    </small>
+                </div>
+                <div class="col s6" align="right">
+                    <small class="white-text"><b>R$ {{list.valorBRL == null ? 'ReadyState' :  list.valorBRL}}</b></small>
+                </div>
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-scroll>
+
+    <script>
+        function updateDonutChart(el, percent, donut) {
+            percent = Math.round(percent);
+            if (percent > 100) {
+                percent = 100;
+            } else if (percent < 0) {
+                percent = 0;
+            }
+            var deg = Math.round(360 * (percent / 100));
+
+            if (percent > 50) {
+                $(el + ' .pie').css('clip', 'rect(auto, auto, auto, auto)');
+                $(el + ' .right-side').css('transform', 'rotate(180deg)');
+            } else {
+                $(el + ' .pie').css('clip', 'rect(0, 1em, 1em, 0.5em)');
+                $(el + ' .right-side').css('transform', 'rotate(0deg)');
+            }
+            if (donut) {
+                $(el + ' .right-side').css('border-width', '0.1em');
+                $(el + ' .left-side').css('border-width', '0.1em');
+                $(el + ' .shadow').css('border-width', '0.1em');
+            } else {
+                $(el + ' .right-side').css('border-width', '0.5em');
+                $(el + ' .left-side').css('border-width', '0.5em');
+                $(el + ' .shadow').css('border-width', '0.5em');
+            }
+            $(el + ' .num').text(percent);
+            $(el + ' .left-side').css('transform', 'rotate(' + deg + 'deg)');
+        }
+
+        // Pass in a number for the percent
+        updateDonutChart('#specificChart', 66.67, true);
+    </script>
+</ion-content>

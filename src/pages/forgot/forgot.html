@@ -1,0 +1,24 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>Recuperar Senha</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="content-md-blue" padding>
+  <div text-center class="white-font">
+    Por favor, digite seu CPF ou CNPJ para receber instruções sobre como redefinir sua senha.
+  </div>
+  <form [formGroup]="forgotForm">
+    <ion-item>
+      <ion-label floating>CPF ou CNPJ</ion-label>
+      <ion-input formControlName="username" type="text" autocapitalize="none"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!forgotForm.controls['username'].valid && (forgotForm.controls['username'].dirty || submitAttempt)">
+      <p class="error">Por favor insira um CPF ou CNPJ válido.</p>
+    </ion-item>
+    <div padding>
+      <button ion-button block color="primary" (click)="submit()" [disabled]="!forgotForm.valid">Redefinir Senha</button>
+    </div>
+  </form>
+</ion-content>
