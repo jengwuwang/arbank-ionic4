@@ -4,6 +4,7 @@ import { TranferenciaPage, TransferenciaTerceiraPage } from '../pages.module';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { HttpClient, HttpEvent, HttpEventType, HttpRequest, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
+import { AuthUser, ICognitoCredentials, ICognitoException, CognitoService, ICognitoSignUpCredentials, IAuthUser, ICognitoProfile } from "../../aws/aws.module";
 
 /**
  * Generated class for the TransferenciaSegundaPage page.
@@ -27,30 +28,41 @@ export class TransferenciaSegundaPage {
   limitedValue : any;
   brlValue : any;
   viewFlag : any;
+  cognitoUserData: any;
+  realAccountID: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient, private fb: FormBuilder, private toastController: ToastController, private storage:Storage) {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Authorization' : 'Bearer cr9qu3Ju7Vo7',
-        'Content-Type': 'application/json',
-        'access_token' : 'cr9qu3Ju7Vo7',
-        'client_id' : 'kjiLnbesiMMD'
-      })
-    };
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams, 
+              public http: HttpClient, 
+              private fb: FormBuilder, 
+              private toastController: ToastController, 
+              private storage:Storage) {
+    let self = this;
 
-    const apiUrlForLimitValue = 'https://sandbox.conductor.com.br/pier/v2/api/limites-disponibilidades?idConta=17';
-     
-    this.http.get(apiUrlForLimitValue, httpOptions).subscribe(result => {
-        this.products = result;
-        this.limitedValue = this.products.saldoDisponivelGlobal;
+    self.storage.get('realAccountID').then((val) => {
+      this.realAccountID = val;
+
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Authorization' : 'Bearer cr9qu3Ju7Vo7',
+          'Content-Type': 'application/json',
+          'access_token' : 'cr9qu3Ju7Vo7',
+          'client_id' : 'kjiLnbesiMMD'
+        })
+      };
+
+      const apiUrlForLimitValue = 'https://sandbox.conductor.com.br/pier/v2/api/limites-disponibilidades?idConta='+this.realAccountID;
+        
+      this.http.get(apiUrlForLimitValue, httpOptions).subscribe(result => {
+          this.products = result;
+          this.limitedValue = this.products.saldoDisponivelGlobal;
+      });
+
+      this.viewFlag = true;
     });
-    this.viewFlag = true;
-    
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TransferenciaSegundaPage');
-  }
+  ionViewDidLoad() {}
 
   onTrans() {
     this.navCtrl.push(TranferenciaPage);
@@ -66,7 +78,6 @@ export class TransferenciaSegundaPage {
     if (self.stepSecondForm.valid) {
       let realBrlValue = this.brlValue.replace(/\D+/g, '');
       if(realBrlValue > this.limitedValue) {
-        // console.log(document.getElementById("brlValue"));
         this.viewFlag = !this.viewFlag;
         toast.setMessage('O valor máximo é ' + this.limitedValue);
         toast.present();

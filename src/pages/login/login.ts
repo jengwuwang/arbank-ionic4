@@ -2,10 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HomePage, MyCardPage, ForgotPage } from '../pages.module';
-import { ICognitoException, ICognitoCredentials } from '../../aws/aws.module';
 import { BusinessService } from '../../common/common.module';
-
-
+import { ICognitoException, ICognitoCredentials } from '../../aws/aws.module';
 
 @IonicPage()
 @Component({
@@ -18,9 +16,14 @@ export class LoginPage {
   validation_messages: any;
   submitAttempt: boolean = false;
 
-  constructor(private businessService: BusinessService, private fb: FormBuilder, private loadingController: LoadingController,
-              private toastController: ToastController, public navCtrl: NavController, public navParams: NavParams) {
-
+  constructor(private businessService: BusinessService, 
+              private fb: FormBuilder, 
+              private loadingController: LoadingController,
+              private toastController: ToastController, 
+              public navCtrl: NavController, 
+              public navParams: NavParams,
+              private storage:Storage) {
+    
   }
 
   buildForm() {

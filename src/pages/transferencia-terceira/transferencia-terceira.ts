@@ -29,33 +29,24 @@ export class TransferenciaTerceiraPage {
   brlValue : any;
   public today: any;
   idToken: any;
-  idConta: any;
-  // session: CognitoUserSession;
-  // private userPool: CognitoUserPool;
+  realAccountID: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient, private storage:Storage, private cognitoService: CognitoService) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams, 
+              public http: HttpClient, 
+              private storage:Storage, 
+              private cognitoService: CognitoService) {
     let self = this;
 
-    // self.storage.get('authUser')
-    // .then((result) => {
-    //     console.log(result);
-    // });
-    // console.log(cognitoService.refreshOrResetCreds());
-
-    // console.log(this.session.getIdToken().getJwtToken());
     self.storage.get('idToken').then((val) => {
         this.idToken = val;
     });
 
-    self.storage.get('idConta').then((val) => {
-        this.idConta = val;
-    });
+    self.storage.get('realAccountID').then((val) => {
+      this.realAccountID = val;
 
-    self.storage.get('account_id').then((val) => {
-      this.account_id = val;
-
-      const apiUrlForStep3 = 'https://sandbox.conductor.com.br/pier/v2/api/contas/'+this.account_id;
-      const apiUrlForLimitValue = 'https://sandbox.conductor.com.br/pier/v2/api/limites-disponibilidades?idConta='+this.account_id;
+      const apiUrlForStep3 = 'https://sandbox.conductor.com.br/pier/v2/api/contas/'+this.realAccountID;
+      const apiUrlForLimitValue = 'https://sandbox.conductor.com.br/pier/v2/api/limites-disponibilidades?idConta='+this.realAccountID;
 
       const httpOptions = {
         headers: new HttpHeaders({
@@ -84,9 +75,7 @@ export class TransferenciaTerceiraPage {
     this.today = moment().format("MM/DD/YYYY");
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TransferenciaTerceiraPage');
-  }
+  ionViewDidLoad() {}
 
   onTransSeg() {
     this.navCtrl.push(TransferenciaSegundaPage);
@@ -120,18 +109,3 @@ export class TransferenciaTerceiraPage {
   }
 
 }
-
-// export interface CognitoUserSessionData {
-//   IdToken: string;
-//   AccessToken: string;
-//   RefreshToken?: string;
-// }
-
-// export class CognitoUserSession {
-//   constructor(data: CognitoUserSessionData);
-
-//   public getIdToken(): CognitoIdToken;
-//   public getRefreshToken(): CognitoRefreshToken;
-//   public getAccessToken(): CognitoAccessToken;
-//   public isValid(): boolean;
-// }
